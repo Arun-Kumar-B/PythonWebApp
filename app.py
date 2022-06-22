@@ -23,7 +23,7 @@ def login():
 def projects():
     return render_template("login.html", title = 'login')
  
-@app.route('/')
+@app.route('/home')
 def home():
    return render_template("home.html")
  
