@@ -7,8 +7,19 @@ app = Flask(__name__)
 def success(name):
     return 'welcome %s' % name
  
+
  
-@app.route('/login')
+@app.route('/login', methods=['POST', 'GET'])
+def login():
+    render_template("login.html", title = 'login')
+    if request.method == 'POST':
+        user = request.form['nm']
+        return redirect(url_for('success', name=user))
+    else:
+        user = request.args.get('nm')
+        return redirect(url_for('success', name=user))
+      
+@app.route('/login1')
 def projects():
     return render_template("login.html", title = 'login')
  
