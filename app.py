@@ -19,7 +19,7 @@ def login():
         user = request.args.get('nm')
         return redirect(url_for('success', name=user))
       
-@app.route('/login1')
+@app.route('/')
 def projects():
     return render_template("login.html", title = 'login')
  
